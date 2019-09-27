@@ -4,14 +4,20 @@ const { execFile } = require('child_process');
 
 console.log('Cleaning dist folder...');
 fs.emptyDirSync('dist');
-console.log('Building for:');
+
+const dirs = [];
 const targets = [];
 for (let index = 2; index < process.argv.length; index += 1) {
-  console.log(process.argv[index]);
-  targets.push(`--${process.argv[index]}`);
+  if (process.argv[index].startsWith('--')) {
+    targets.push(process.argv[index]);
+  } else {
+    dirs.push(process.argv[index]);
+  }
 }
+console.log('Building for:');
+targets.forEach(target => console.log(target.substring(2)));
+
 // obfuscate files
-const dirs = ['js/', 'classes/'];
 dirs.forEach((dir) => {
   fs.readdirSync(dir).forEach((file) => {
     const path = `${dir}${file}`;

@@ -6,7 +6,7 @@ This script is used by me to automate the obfuscation + build process for some o
 
 1. Cleans your dist folder
 2. Obfuscates your JavaScript files in your selected source folders
-3. Checks for Dependencies in your package.json file which should be listed under dev-dependencies
+3. Checks for dependencies in your package.json file which should be listed under devDependencies
 4. Builds the electron app with the local electron-builder installation
 5. Makes a hard git reset (So you can continue working with your non-obfuscated files)
 
@@ -23,11 +23,10 @@ Install the needed dependencies: [javascript-obfuscator](https://github.com/java
 
 Edit some variables to fit your environment/needs: 
   - dist folder (line 6)
-  - source folder list (line 14)
-  - javascript-obfuscator config (line 19 to 24)
-  - dev dependencies (line 31)
+  - javascript-obfuscator config (lines 26-30)
+  - dev dependencies (line 37)
   
-Run it with: `npm run build win mac linux`
+Run it with: `npm run build js/ classes/ --win --mac --linux`
 And it will try to build for all 3 platforms, if it's possible (Only on mac AFAIK)
 
 
