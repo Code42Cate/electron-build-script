@@ -15,7 +15,7 @@ for (let index = 2; index < process.argv.length; index += 1) {
   }
 }
 console.log('Building for:');
-targets.forEach(target => console.log(target.substring(2)));
+targets.forEach((target) => console.log(target.substring(2)));
 
 // obfuscate files
 dirs.forEach((dir) => {
